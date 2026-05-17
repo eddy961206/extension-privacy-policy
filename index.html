@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chrome Extensions Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Chrome extensions published by eddy961206.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8fafc;
+      --fg: #172033;
+      --muted: #526071;
+      --card: #ffffff;
+      --border: #d9e0ea;
+      --accent: #1769e0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10141d;
+        --fg: #eef3fb;
+        --muted: #aab4c1;
+        --card: #171d29;
+        --border: #30394a;
+        --accent: #7db0ff;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    h1,
+    h2 {
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    h2 {
+      margin: 32px 0 8px;
+      font-size: 1.35rem;
+    }
+
+    p,
+    ul {
+      margin: 10px 0;
+    }
+
+    ul {
+      padding-left: 24px;
+    }
+
+    .updated {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      overflow-wrap: anywhere;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+
+    @media (max-width: 640px) {
+      article {
+        padding: 22px;
+      }
+
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      tr {
+        display: block;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Chrome Extensions Privacy Policy</h1>
+      <p class="updated">Last updated: May 17, 2026</p>
+
+      <p>
+        This privacy policy applies to Chrome extensions published by eddy961206, including Korean Word Lookup,
+        Airplane Chime Timer, Easy Encrypt, and other Chrome extensions that link to this page.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>The extensions do not sell personal information.</li>
+        <li>The extensions do not use personal information for credit, lending, employment, or eligibility decisions.</li>
+        <li>Extension settings are stored locally in Chrome storage unless a feature clearly requires an external service.</li>
+        <li>Only the minimum data needed for each feature is processed.</li>
+      </ul>
+
+      <h2>Data Processed by Extension</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Extension</th>
+            <th>Data processed</th>
+            <th>Purpose</th>
+            <th>Where it is processed or stored</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Korean Word Lookup</td>
+            <td>Selected or hovered text, language/settings preferences, optional KRDICT API key, privacy-safe usage events.</td>
+            <td>Show translations, dictionary definitions, remember preferences, and understand aggregate feature usage.</td>
+            <td>
+              Selected or hovered text may be sent to Google Translate or KRDICT only to return translation or dictionary results.
+              Settings are stored in Chrome storage. Product analytics events are sent to Google Analytics without raw selected text.
+            </td>
+          </tr>
+          <tr>
+            <td>Airplane Chime Timer</td>
+            <td>Timer settings, selected sound, volume, custom sound files, usage counters for local review prompts.</td>
+            <td>Run reminder timers, play selected chimes, save preferences, and manage local review prompts.</td>
+            <td>Stored locally in Chrome storage. Custom sounds are stored locally in the browser.</td>
+          </tr>
+          <tr>
+            <td>Easy Encrypt</td>
+            <td>Input text, output text, selected algorithm, optional remembered key, usage count, context-menu selected text.</td>
+            <td>Encrypt, decrypt, encode, decode, hash text, copy results, and remember local preferences.</td>
+            <td>Processed locally in Chrome. Secret keys are not saved unless the Remember key option is turned on.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Data Sharing</h2>
+      <p>
+        The extensions do not sell user data and do not share user data with advertisers or data brokers.
+        Korean Word Lookup may send lookup text to Google Translate or KRDICT when the user requests a translation or dictionary result.
+        Korean Word Lookup may send privacy-safe usage events to Google Analytics to measure aggregate product usage; raw lookup text is not included.
+      </p>
+
+      <h2>Remote Services</h2>
+      <ul>
+        <li>Google Translate: used by Korean Word Lookup to fetch translation results.</li>
+        <li>KRDICT: used by Korean Word Lookup to fetch Korean dictionary results.</li>
+        <li>Google Analytics: used by Korean Word Lookup for aggregate product analytics without raw lookup text.</li>
+      </ul>
+
+      <h2>Local Storage</h2>
+      <p>
+        The extensions use Chrome storage to save preferences and feature state. This can include settings, timer choices,
+        selected algorithms, optional custom sounds, and optional keys when a user explicitly enables a remember option.
+        Users can clear extension data by removing the extension from Chrome or clearing the extension's site/app data in Chrome.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        The extensions use Chrome extension storage and browser APIs to keep processing scoped to the extension features.
+        Easy Encrypt is a convenience tool for local text encryption, encoding, and hashing; users should not treat it as a replacement
+        for a dedicated enterprise password manager or audited security system.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        These extensions are general productivity tools and are not directed to children under 13.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        This policy may be updated when extensions add, remove, or change data processing behavior. The date at the top of this page
+        will be updated when material changes are made.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy questions, suggestions, or issues, contact:
+        <a href="mailto:skykum2004@gmail.com">skykum2004@gmail.com</a>
+      </p>
+    </article>
+  </main>
+</body>
+</html>
