@@ -127,7 +127,7 @@
   <main>
     <article>
       <h1>Chrome Extensions Privacy Policy</h1>
-      <p class="updated">Last updated: May 17, 2026</p>
+      <p class="updated">Last updated: November 6, 2026 (2026-11-06)</p>
 
       <p>
         This privacy policy applies to Chrome extensions published by eddy961206, including Korean Word Lookup,
@@ -138,7 +138,7 @@
       <ul>
         <li>The extensions do not sell personal information.</li>
         <li>The extensions do not use personal information for credit, lending, employment, or eligibility decisions.</li>
-        <li>Extension settings are stored locally in Chrome storage unless a feature clearly requires an external service.</li>
+        <li>Storage depends on the extension. Korean Word Lookup 2.5.3 uses Chrome sync for ordinary settings, local storage for counters and diagnostics, and memory-only session storage for the KRDICT key.</li>
         <li>Only the minimum data needed for each feature is processed.</li>
       </ul>
 
@@ -154,12 +154,13 @@
         </thead>
         <tbody>
           <tr>
-            <td>Korean Word Lookup</td>
-            <td>Selected or hovered text, language/settings preferences, optional KRDICT API key, privacy-safe usage events.</td>
-            <td>Show translations, dictionary definitions, remember preferences, and understand aggregate feature usage.</td>
+            <td><a href="#korean-word-lookup">Korean Word Lookup 2.5.3</a></td>
+            <td>Hovered Korean words, optionally selected Korean text, settings, optional KRDICT API key, and local usage counters and diagnostics.</td>
+            <td>Show translations and dictionary definitions, remember preferences, support onboarding and review prompts, and diagnose feature behavior locally.</td>
             <td>
-              Selected or hovered text may be sent to Google Translate or KRDICT only to return translation or dictionary results.
-              Settings are stored in Chrome storage. Product analytics events are sent to Google Analytics without raw selected text.
+              Lookup text goes to Google Translate or KRDICT as described below. Ordinary settings use Chrome sync.
+              The KRDICT key uses memory-only session storage; counters and diagnostics stay in local extension storage.
+              Version 2.5.3 sends no remote product analytics. Older versions, including 2.5.2, may send Google Analytics events.
             </td>
           </tr>
           <tr>
@@ -177,24 +178,105 @@
         </tbody>
       </table>
 
+      <h2 id="korean-word-lookup">Korean Word Lookup 2.5.3</h2>
+      <p>
+        This section describes version 2.5.3. Until your installed extension is updated, the older-version notice below applies.
+        The version number identifies the behavior described here; this policy's date does not mean that every browser has received the update.
+      </p>
+
+      <h3>Translation requests and controls</h3>
+      <p>
+        When translation is enabled, hovering over a Korean word automatically sends that word to the selected provider:
+        Google Translate (translate.googleapis.com) or the National Institute of Korean Language's KRDICT (krdict.korean.go.kr).
+        If automatic source fallback is enabled and a lookup fails, the word may also be sent to the other provider.
+        KRDICT requests require your own API key.
+      </p>
+      <p>
+        Selection translation is off by default. When enabled, selecting Korean text of up to 500 characters sends the selection
+        to Google for English translation, even when KRDICT is selected for word lookups. The extension does not upload the whole page.
+        Mouse and selection events are processed locally to operate these features. Input/password fields, textareas, editable regions,
+        and selections crossing editable content are skipped, but other page text may still be private.
+      </p>
+      <p>
+        Turn translation off in the popup or with its configured keyboard shortcut before reading text you do not want a provider to receive.
+        Selection translation and automatic source fallback have separate controls. An optional browser on-device fallback, when supported,
+        is attempted only after a Google request fails; it does not make the initial request offline.
+      </p>
+      <p>
+        Provider requests use HTTPS and omit browser cookies and the page referrer. The extension does not attach the browsing page's URL.
+        Providers receive the lookup text and normal network metadata, including your IP address. KRDICT also receives your API key.
+        Provider availability, processing, and retention are governed by those providers; we do not promise a provider-side deletion period.
+      </p>
+
+      <h3>KRDICT key and settings</h3>
+      <p>
+        Version 2.5.3 keeps your KRDICT API key in Chrome extension session storage, in memory, accessible only to trusted extension contexts.
+        Newly entered keys are not saved to persistent local storage or Chrome sync. The key is sent only to KRDICT for dictionary requests,
+        never to Google or page content scripts. The popup shows whether a key exists, not the stored key itself.
+        Use Save key to replace it or Clear key to remove it. Enter it again after a browser restart or after the extension is reloaded,
+        disabled, or updated, because these actions clear session storage.
+      </p>
+      <p>
+        During upgrade, an existing key in legacy local or sync storage is transferred to session storage. Legacy stored values are removed
+        only after that transfer succeeds; a failed transfer can leave the old values in place. Older versions on other browsers or devices
+        can retain their previous storage behavior until updated. This migration cannot undo copies previously synchronized to other devices.
+      </p>
+      <p>
+        Ordinary preferences, including translation enablement, source selection, and tooltip settings, use Chrome sync storage.
+        Chrome may synchronize those preferences across browsers when browser sync is enabled.
+      </p>
+
+      <h3>Local counters, diagnostics, and temporary results</h3>
+      <p>
+        Version 2.5.3 has no remote product-analytics sender. Usage events, analytics identifiers, lookup text, and browsing history
+        are not uploaded as analytics. Translation requests described above are separate from analytics.
+      </p>
+      <p>
+        Local counters and dates support onboarding and review prompts, including installation and first-success state,
+        word/selection usage counts, and prompt preferences. These can remain for the installation lifetime.
+        Recent diagnostics contain event timestamps, fixed event names, enum categories, and bounded counters, not lookup words,
+        page URLs, API keys, free-form error messages, or provider results.
+      </p>
+      <p>
+        The diagnostic event trail is limited to 200 entries. Events and daily diagnostic buckets older than 30 days are removed
+        when the next event is recorded; there is no timed deletion while the extension is idle.
+        This retention limit does not apply to the installation-lifetime counters described above.
+      </p>
+      <p>
+        Translation results are cached temporarily in each page's content-script memory, up to 200 entries, with a 24-hour expiration
+        checked on lookup. Reloading or closing the page clears that page's cache. Results are not written to persistent extension storage.
+        Removing the extension removes its local extension data through Chrome. Opening feedback opens a GitHub issue form and does not
+        submit anything automatically. Do not post API keys, private text, private URLs, or personal data in public feedback.
+      </p>
+
+      <h3>Older versions, including 2.5.2</h3>
+      <p>
+        Older versions may send product usage events to Google Analytics without raw lookup text, and may retain the KRDICT key in
+        persistent Chrome storage, including sync storage. Version 2.5.3 removes the remote analytics sender and legacy analytics
+        settings and identifiers. Updating does not delete records that an older version may already have sent to Google Analytics
+        or another independently configured service. Older versions can continue their previous behavior until updated.
+      </p>
+
       <h2>Data Sharing</h2>
       <p>
         The extensions do not sell user data and do not share user data with advertisers or data brokers.
-        Korean Word Lookup may send lookup text to Google Translate or KRDICT when the user requests a translation or dictionary result.
-        Korean Word Lookup may send privacy-safe usage events to Google Analytics to measure aggregate product usage; raw lookup text is not included.
+        Korean Word Lookup shares lookup text with its translation and dictionary providers to return results, as described above.
+        Version 2.5.3 does not send remote product analytics; older versions may have sent Google Analytics events.
       </p>
 
       <h2>Remote Services</h2>
       <ul>
-        <li>Google Translate: used by Korean Word Lookup to fetch translation results.</li>
-        <li>KRDICT: used by Korean Word Lookup to fetch Korean dictionary results.</li>
-        <li>Google Analytics: used by Korean Word Lookup for aggregate product analytics without raw lookup text.</li>
+        <li>Google Translate: used by Korean Word Lookup for translation requests, including enabled selection translation.</li>
+        <li>KRDICT: used by Korean Word Lookup for dictionary requests with the user's API key.</li>
+        <li>Chrome sync: may synchronize Korean Word Lookup's ordinary preferences when browser sync is enabled.</li>
+        <li>Google Analytics: used by older Korean Word Lookup versions for product usage analytics, not by version 2.5.3.</li>
+        <li>GitHub: hosts the feedback form opened by Korean Word Lookup; submitting feedback is a separate user action.</li>
       </ul>
 
-      <h2>Local Storage</h2>
+      <h2>Storage for Other Extensions</h2>
       <p>
-        The extensions use Chrome storage to save preferences and feature state. This can include settings, timer choices,
-        selected algorithms, optional custom sounds, and optional keys when a user explicitly enables a remember option.
+        Airplane Chime Timer stores timer choices, sounds, volume, custom sound files, and review-prompt counters locally as described in the table.
+        Easy Encrypt processes text locally and stores its preferences and an optional remembered key as described in the table.
         Users can clear extension data by removing the extension from Chrome or clearing the extension's site/app data in Chrome.
       </p>
 
@@ -225,3 +307,4 @@
   </main>
 </body>
 </html>
+
